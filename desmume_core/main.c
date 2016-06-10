@@ -168,7 +168,12 @@ int main(int argc, char **argv)
 
 		u16 * src = (u16*)GPU_screen;
 		int x,y;
-
+		
+		u32 kHeld = hidKeysHeld();
+		if((kHeld & KEY_A) && (kHeld & KEY_L) && (kHeld & KEY_R) && (kHeld & KEY_DOWN)){
+			return 0;
+		}
+		
 		for(x=0; x<256; x++){
     		for(y=0; y<192;y++){
         		tfb[(((x + 72) * 240) + (191 - y))] = ABGR1555toRGBA8(src[( y * 256 ) + x]);
