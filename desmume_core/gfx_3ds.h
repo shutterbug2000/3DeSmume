@@ -2,8 +2,6 @@
 #ifndef __GFX_3DS_H__
 #define __GFX_3DS_H__
 
-
-//#include "os_3ds.h"
 #include <sf2d.h>
 #include <sfil.h>
 #include <3ds.h>

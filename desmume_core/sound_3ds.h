@@ -2,9 +2,6 @@
 #ifndef __SOUND_3DS_H__
 #define __SOUND_3DS_H__
 
-
-//#include "os_3ds.h"
-
 #define FSOUND_FREE 1
 #define NUMSFX (45)
 
