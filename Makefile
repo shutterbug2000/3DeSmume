@@ -29,7 +29,7 @@ include $(DEVKITARM)/3ds_rules
 #---------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
-SOURCES		:=	source, desmume_core
+SOURCES		:=	desmume_core
 DATA		:=	data
 INCLUDES	:=	desmume_core
 #ROMFS		:=	romfs
@@ -39,7 +39,7 @@ INCLUDES	:=	desmume_core
 #---------------------------------------------------------------------------------
 ARCH	:=	-march=armv6k -mtune=mpcore -mfloat-abi=hard -mtp=soft
 
-CFLAGS	:=	-g -Wall -O2 -mword-relocations \
+CFLAGS	:=	-g -Wall -O2 -mword-relocations -Wfatal-errors \
 			-fomit-frame-pointer -ffunction-sections \
 			$(ARCH)
 
@@ -50,7 +50,7 @@ CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++11
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=3dsx.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
-LIBS	:= -lsf2d -lsfil -lctru -lm
+LIBS	:=  -lctru -lm
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
