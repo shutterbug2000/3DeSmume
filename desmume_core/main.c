@@ -91,7 +91,8 @@ void DSonpspExec()
 
 	if(hidKeysHeld() & KEY_TOUCH){
 		hidTouchRead(&touch);
-		NDS_setTouchPos(touch.px,touch.py);
+		if(touch.px > 32 && touch.px < 278 && touch.py < 192)
+				NDS_setTouchPos(touch.px - 32,touch.py);
 	}
 
 	else if(hidKeysUp() & KEY_TOUCH){
@@ -170,8 +171,8 @@ int main(int argc, char **argv)
 
 		for(x=0; x<256; x++){
     		for(y=0; y<192;y++){
-        		tfb[((x*240) + (239 -y))] = ABGR1555toRGBA8(src[( y * 256 ) + x]);
-        		bfb[((x*240) + (239 -y))] = ABGR1555toRGBA8(src[( (y + 192) * 256 ) + x]);
+        		tfb[(((x + 72) * 240) + (191 - y))] = ABGR1555toRGBA8(src[( y * 256 ) + x]);
+        		bfb[(((x + 32)*240) + (239 - y))] = ABGR1555toRGBA8(src[( (y + 192) * 256 ) + x]);
     		}
 		}
 
