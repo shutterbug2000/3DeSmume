@@ -171,7 +171,7 @@ int main(int argc, char **argv)
 		
 		u32 kHeld = hidKeysHeld();
 		if((kHeld & KEY_A) && (kHeld & KEY_L) && (kHeld & KEY_R) && (kHeld & KEY_DOWN)){
-			return 0;
+			break;
 		}
 		
 		for(x=0; x<256; x++){
@@ -187,6 +187,7 @@ int main(int argc, char **argv)
 
 
     }
-
+	
+	gfxExit();
 	return 0;
 }
